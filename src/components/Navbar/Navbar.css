@@ -1,0 +1,11 @@
+.app__header {
+  margin-bottom: 30px;
+  padding: 15px 10px;
+  text-align: center;
+  background-color: rgb(12, 35, 58);
+}
+
+.app__header-title {
+  font-size: 30px;
+  color: #fff;
+}
