@@ -9,6 +9,7 @@ const Countries = () => {
   const [countries, setCountries] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [value, setValue] = useState('');
+  const [visible, setVisible] = useState(6);
 
   const getCountries = () => {
     axios
@@ -29,6 +30,10 @@ const Countries = () => {
     return country.name.toLowerCase().includes(value.toLowerCase());
   });
 
+  const showMore = () => {
+    setVisible((prevValue) => prevValue + 6);
+  };
+
   return (
     <section className="app__countries">
       <div className="container">
@@ -48,13 +53,19 @@ const Countries = () => {
 
           {isLoading ? (
             <div className="app__countries-list">
-              {filteredCountries.map((country) => (
+              {filteredCountries.slice(0, visible).map((country) => (
                 <Country key={country.numericCode} {...country} />
               ))}
             </div>
           ) : (
             <div className="app__loading">Loading...</div>
           )}
+
+          {filteredCountries.length > 6 ? (
+            <button className="app__countries-btn" onClick={showMore}>
+              Show More
+            </button>
+          ) : null}
         </div>
       </div>
     </section>

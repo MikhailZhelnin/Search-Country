@@ -2,6 +2,10 @@
 }
 
 .app__countries-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
 }
 
 .app__countries-title {
@@ -25,7 +29,28 @@
 }
 
 .app__countries-list {
+  width: 100%;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.app__loading {
+  text-align: center;
+  font-size: 25px;
+}
+
+.app__countries-btn {
+  padding: 10px 15px;
+  font-size: 17px;
+  border: none;
+  color: #fff;
+  background-color: rgb(12, 35, 58);
+  cursor: pointer;
+  transition: background-color 0.2s linear;
+}
+
+.app__countries-btn:hover {
+  background-color: rgb(20, 54, 88);
 }
